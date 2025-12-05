@@ -3,9 +3,10 @@ services:
     build: .
     ports:
       - "8080:8080"
+
     volumes:
-      - seed-data:/data
-      - cron-output:/cron
+      - ./data:/data
+      - ./cron:/cron                 # <- bind-mount host cron dir
       - ./student_private.pem:/app/student_private.pem:ro
       - ./student_public.pem:/app/student_public.pem:ro
       - ./instructor_public.pem:/app/instructor_public.pem:ro
